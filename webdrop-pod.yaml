@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webdrop
+  labels:
+    name: webdrop
+spec:
+  containers:
+  - name: webdrop
+    image: gcr.io/my-k8s-codelab-1382/webdrop:v1
+    ports:
+    - containerPort: 5000
+    volumeMounts:
+    - name: webdrop-volume
+      mountPath: /data
+  volumes:
+  - name: webdrop-volume
+    gcePersistentDisk:
+      pdName: webdrop-db
+      fsType: ext4

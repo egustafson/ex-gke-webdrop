@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: webdrop
+spec:
+  selector:
+    app: webdrop
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000

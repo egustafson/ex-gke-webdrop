@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: webdrop
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: webdrop
+    spec:
+      containers:
+      - image: gcr.io/my-k8s-codelab-1382/webdrop:v1
+        name: webdrop
+        ports:
+        - containerPort: 5000
